@@ -1,6 +1,4 @@
-import java.util.*;
-
-public class Main {
+/*public class Main {
     public static void printArray(double [][]arr) {
         System.out.println("The number of rows in the array: " + arr.length);
         for(int i=0;i<arr.length;i++){
@@ -80,5 +78,78 @@ public class Main {
 
         scanner.close();
         System.out.println("Exit.");
+    }
+}3장문제 */
+
+
+   class Menu{
+     private int id;
+     private String name;
+     private double price;
+
+     public Menu(int id, String name, double price){
+         this.id = id;
+         this.name = name;
+         this.price = price;
+     }
+     public int getId(int id){// 단순히 멤버변수의 값을 반환하는 일을 한다.
+         return id;
+     }
+     public void setId(int id){//매개변수에 저장된 값을 검사하여 조건에 맞는 값일 때만 멤버변수의 값을 변경하도록 한다.
+         this.id = id;
+     }
+
+    public String getName(String name){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public double getPrice(double price){
+        return price;
+    }
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public void print(){
+        System.out.println(this.id + ": " + this.name + " [" + this.price/1000 + "]");
+    }
+}
+class Menuboard{
+      static String []   menus = {"Americano", "Latte", "Mocca", "Cappuccino",
+              "Milk Tea", "Chi Tea", "Lemon Sweet", "Jamong Honey"};
+      static double []     prices = {4100, 4300, 4300, 4800, 5100, 5300, 5800, 6100};
+
+      private Menu [] MenuList; // Menu에 삽입할 메뉴리스르 배열 생성
+      private Menuboard(){
+          MenuList = new Menu[menus.length];
+          for (int i = 0; i < menus.length; i++) {
+             MenuList[i] = new Menu(i+1, menus[i], prices[i]);
+          }
+
+      }
+
+      public static Menuboard makeBoard(){
+             return new Menuboard();
+
+      }
+
+      public void print(){
+          System.out.println("***** Best Coffee *****");
+          for(Menu m : MenuList){
+              m.print();
+          }
+          System.out.println("***********************");
+      }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Menuboard mboard = Menuboard.makeBoard();// 이부분에서 makeBoard는 static이구나를 파악한다.
+        //Menuboard의 객체를 생성하는 부분이므로 Menuboard 생정자에서 객체 저장을 담당한다.
+        mboard.print();
     }
 }
