@@ -10,7 +10,7 @@ public class toic {
     private JLabel lblQuestion;
 
     // 단어 목록
-    String[][] words = {{"사과", "apple"}, {"바나나", "banana"}, {"참외", "melon"}, /* 추가적인 단어들 */};
+    String[][] words = {{"사과", "apple"}, {"바나나", "banana"}, {"참외", "melon"},{"자바","java"} /* 추가적인 단어들 */};
 
     Random random = new Random();
 
