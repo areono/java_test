@@ -1,8 +1,28 @@
-interface caseType{
-    public int Timeout = 100;
-}//인터페이스 타입의 레퍼런스 변수 선언 가능
-class book implements caseType{
-    public static void main(String[] args) {
-        System.out.println(caseType.Timeout);
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class test extends JFrame {
+    public test() {
+        setTitle("Action 이벤트 리스너 예제");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container c = getContentPane();
+        c.setLayout(new FlowLayout());
+        JButton btn = new JButton("Action");
+        btn.addActionListener(new MyActionListener()); // Action 리스너 달기
+        c.add(btn);
+        setSize(350, 150);
+        setVisible(true); }
+
+    public static void main(String [] args) {
+        new test();
+    }
+}
+class MyActionListener implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+        JButton b = (JButton)e.getSource();
+        if(b.getText().equals("Action"))
+            b.setText("액션");
+        else
+            b.setText("Action");
     }
 }
